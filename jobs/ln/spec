@@ -1,0 +1,21 @@
+---
+name: ln
+
+templates:
+  pre-start.erb: bin/pre-start
+
+properties:
+  hardlinks:
+    default: []
+    description: Hard links
+    example:
+      hardlinks:
+      - src: /var/vcap/bosh/log/current
+        dest: /var/vcap/sys/log/agent-logs/current
+  softlinks:
+    default: []
+    description: Soft links
+    example:
+      softlinks:
+      - src: /var/vcap/bosh/log/current
+        dest: /var/vcap/sys/log/agent-logs/current

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+<% p('hardlinks').each do |link| %>
+  echo <% puts link %>
+  mkdir -p "<%= link['dest'].split('/')[0...-1].join('/') %>"
+  ln "<%= link['src'] %>" "<%= link['dest'] %>"
+<% end %>
+
+<% p('softlinks').each do |link| %>
+  echo <% puts link %>
+  mkdir -p "<%= link['dest'].split('/')[0...-1].join('/') %>"
+  ln -s "<%= link['src'] %>" "<%= link['dest'] %>"
+<% end %>
